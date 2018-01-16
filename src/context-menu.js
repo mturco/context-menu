@@ -187,5 +187,3 @@ document.addEventListener('click', (e) => {
     }
   });
 })
-
-window.cms = instances;
