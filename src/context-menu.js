@@ -151,6 +151,16 @@ export default class ContextMenu {
 
     if (next) next.focus();
   }
+
+  // Convenience method for adding an event listener
+  on(type, fn) {
+    this.menu.addEventListener(type, fn);
+  }
+
+  // Convenience method for removing an event listener
+  off(type, fn) {
+    this.menu.removeEventListener(type, fn);
+  }
 }
 
 // Listen for contextmenu event to show menu
