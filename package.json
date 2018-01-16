@@ -6,7 +6,7 @@
   "moduleName": "ContextMenu",
   "scripts": {
     "build": "rollup -c",
-    "watch": "rollup -c -w",
+    "dev": "rollup -c -w",
     "demo": "live-server --watch=index.html,context-menu.js"
   },
   "repository": {
@@ -27,7 +27,6 @@
     "rollup-plugin-buble": "^0.18.0",
     "rollup-plugin-postcss": "^1.2.3",
     "rollup-plugin-uglify": "^2.0.1",
-    "rollup-watch": "^4.3.1",
     "stylelint": "^8.4.0",
     "stylelint-config-suitcss": "^13.0.0"
   },
