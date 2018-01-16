@@ -38,6 +38,8 @@
 
   var cm1 = new ContextMenu('.default-theme', items);
   var cm2 = new ContextMenu('.minimal', items, { className: 'ContextMenu--theme-custom', minimalStyling: true });
+
+  cm1.on('shown', () => console.log('Context menu shown'));
 </script>
 </body>
 </html>
