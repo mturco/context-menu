@@ -18,6 +18,18 @@ function getSibling(el, selector, direction = 1) {
   }
 }
 
+// Fires custom event on given element
+function emit(el, type, data = {}) {
+  const event = document.createEvent('Event');
+
+  Object.keys(data).forEach((key) => {
+    event[key] = data[key];
+  });
+
+  event.initEvent(type, true, true);
+  el.dispatchEvent(event);
+}
+
 export default class ContextMenu {
   constructor(selector, items, options = {
     className: '',
@@ -86,6 +98,8 @@ export default class ContextMenu {
 
     // Add root element to the <body>
     document.body.appendChild(this.menu);
+
+    emit(this.menu, 'created');
   }
 
   // Shows context menu
@@ -98,12 +112,15 @@ export default class ContextMenu {
     this.menu.focus();
     // Disable native context menu
     e.preventDefault();
+
+    emit(this.menu, 'shown');
   }
 
   // Hides context menu
   hide() {
     this.menu.classList.remove('is-open');
     this.target = null;
+    emit(this.menu, 'hidden');
   }
 
   // Selects the given item and calls its handler
@@ -114,6 +131,7 @@ export default class ContextMenu {
       this.items[itemId].fn(this.target);
     }
     this.hide();
+    emit(this.menu, 'itemselected');
   }
 
   // Moves focus to the next/previous menu item
