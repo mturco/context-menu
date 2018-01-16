@@ -2,6 +2,8 @@
 
 A small (4kb / 1.7kb gzipped) JavaScript library for adding context menus to any HTML element.
 
+[See demo](https://mturco.github.io/context-menu/)
+
 ## API
 
 ### Constructor
