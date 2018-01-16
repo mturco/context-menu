@@ -1,12 +1,13 @@
 {
   "name": "context-menu",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {},
+  "description": "A small JavaScript library for adding context menus to any HTML element",
+  "main": "context-menu.js",
+  "moduleName": "ContextMenu",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "demo": "live-server --watch=context-menu.js"
   },
   "repository": {
     "type": "git",
@@ -14,5 +15,23 @@
   },
   "keywords": [],
   "author": "Matt Turco <matt.turco@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^7.2.5",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "less": "^2.7.3",
+    "live-server": "^1.2.0",
+    "rollup": "^0.54.0",
+    "rollup-plugin-buble": "^0.18.0",
+    "rollup-plugin-postcss": "^1.2.3",
+    "rollup-plugin-uglify": "^2.0.1",
+    "rollup-watch": "^4.3.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }
