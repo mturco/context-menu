@@ -7,8 +7,7 @@
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
-    "demo": "live-server --watch=index.html,context-menu.js",
-    "lint": "stylelint src"
+    "demo": "live-server --watch=index.html,context-menu.js"
   },
   "repository": {
     "type": "git",
