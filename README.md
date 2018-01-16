@@ -1,11 +1,12 @@
 # context-menu
 
-A small (4kb / 1.6kb gzipped) JavaScript library for adding context menus to any HTML element.
+A small (4kb / 1.7kb gzipped) JavaScript library for adding context menus to any HTML element.
 
 ## API
 
+### Constructor
+
 ```js
-// Constructor
 new ContextMenu(selector[, options]);
 ```
 
@@ -14,14 +15,19 @@ new ContextMenu(selector[, options]);
   * `className` (String, default: `''`) - CSS class to add to the context menu element
   * `minimalStyling` (Boolean, default: `false`) - If true, does not apply default theme CSS class to context menu element
 
+### .on() / .off()
+
 ```js
-// Event helper methods
 ContextMenu.prototype.on(type, listener);
 ContextMenu.prototype.off(type, listener);
 ```
 
 * `type` (String) - Event type; one of: `created`, `shown`, `hidden`, `itemselected`
 * `listener` (Function) - Callback for event listener
+
+### .destroy()
+
+Removes DOM elements and event listeners.
 
 ## Example
 

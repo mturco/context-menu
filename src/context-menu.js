@@ -161,6 +161,13 @@ export default class ContextMenu {
   off(type, fn) {
     this.menu.removeEventListener(type, fn);
   }
+
+  // Removes DOM elements, stop listeners
+  destroy() {
+    this.menu.parentElement.removeChild(this.menu);
+    this.menu = null;
+    instances.splice(instances.indexOf(this), 1);
+  }
 }
 
 // Listen for contextmenu event to show menu
@@ -180,3 +187,5 @@ document.addEventListener('click', (e) => {
     }
   });
 })
+
+window.cms = instances;
