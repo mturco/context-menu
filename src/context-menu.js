@@ -13,9 +13,8 @@ function getSibling(el, selector, direction = 1) {
   const sibling = direction > 0 ? el.nextElementSibling : el.previousElementSibling;
   if (!sibling || sibling.matches(selector)) {
     return sibling;
-  } else {
-    return getSibling(sibling, selector, direction);
   }
+  return getSibling(sibling, selector, direction);
 }
 
 // Fires custom event on given element
@@ -63,6 +62,8 @@ export default class ContextMenu {
         case 27:
           this.hide();
           break;
+        default:
+          // do nothing
       }
     });
 
@@ -77,7 +78,7 @@ export default class ContextMenu {
     this.items.forEach((item, index) => {
       const li = document.createElement('li');
 
-      if (!item.hasOwnProperty('name')) {
+      if (!('name' in item)) {
         // Insert a divider
         li.className = 'ContextMenu-divider';
       } else {
@@ -177,7 +178,7 @@ document.addEventListener('contextmenu', (e) => {
       menu.show(e);
     }
   });
-})
+});
 
 // Listen for click event to hide menu
 document.addEventListener('click', (e) => {
@@ -186,4 +187,4 @@ document.addEventListener('click', (e) => {
       menu.hide();
     }
   });
-})
+});
