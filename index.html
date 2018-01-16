@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <title>ContextMenu</title>
+  <style>
+    body {
+      padding: 20px;
+      font: 16px sans-serif;
+    }
+
+    div {
+      float: left;
+      width: 150px;
+      height: 150px;
+      margin-right: 20px;
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      color: #444;
+      line-height: 150px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<p>Try right-clicking on each of the boxes below.</p>
+<div class="default-theme" tabindex="0">Default theme</div>
+<div class="minimal" tabindex="0">No theme</div>
+
+<script src="context-menu.js"></script>
+<script>
+  var items = [
+    { name: 'Cut', fn: function(target) { console.log('Cut', target); }},
+    { name: 'Copy', fn: function(target) { console.log('Copy', target); }},
+    { name: 'Paste', fn: function(target) { console.log('Paste', target); }},
+    {},
+    { name: 'Select All', fn: function(target) { console.log('Select All', target); }},
+  ];
+
+  var cm1 = new ContextMenu('.default-theme', items);
+  var cm2 = new ContextMenu('.minimal', items, { className: 'ContextMenu--theme-custom', minimalStyling: true });
+</script>
+</body>
+</html>

@@ -12,7 +12,6 @@ export default {
       plugins: [
         autoprefixer(),
       ],
-      inject: false,
       minimize: true,
     }),
     buble(),
