@@ -9,10 +9,14 @@ A small (4kb / 1.7kb gzipped) JavaScript library for adding context menus to any
 ### Constructor
 
 ```js
-new ContextMenu(selector[, options]);
+new ContextMenu(selector, items[, options]);
 ```
 
 * `selector` (String) - Show context menus for elements matching this selector
+* `items` (Array) - Array of menu items objects in the format of:
+  * `name` (String) - Label displayed for menu item
+  * `fn` (Function) - `onclick` event handler for menu item
+  * *Note: to insert a divider, insert an empty object (`{}`) in the `items` array.*
 * `options` (Object)
   * `className` (String, default: `''`) - CSS class to add to the context menu element
   * `minimalStyling` (Boolean, default: `false`) - If true, does not apply default theme CSS class to context menu element
