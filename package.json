@@ -2,7 +2,7 @@
   "name": "context-menu",
   "version": "1.0.0",
   "description": "A small JavaScript library for adding context menus to any HTML element",
-  "main": "context-menu.js",
+  "main": "dist/context-menu.js",
   "moduleName": "ContextMenu",
   "scripts": {
     "build": "rollup -c",
