@@ -1,6 +1,6 @@
 {
   "name": "@mturco/context-menu",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A small JavaScript library for adding context menus to any HTML element",
   "main": "dist/context-menu.js",
   "moduleName": "ContextMenu",
