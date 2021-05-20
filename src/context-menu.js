@@ -10,7 +10,8 @@ if (!Element.prototype.matches) {
 
 // Gets an element's next/previous sibling that matches the given selector
 function getSibling(el, selector, direction = 1) {
-  const sibling = direction > 0 ? el.nextElementSibling : el.previousElementSibling;
+  const sibling =
+    direction > 0 ? el.nextElementSibling : el.previousElementSibling;
   if (!sibling || sibling.matches(selector)) {
     return sibling;
   }
@@ -30,10 +31,14 @@ function emit(el, type, data = {}) {
 }
 
 export default class ContextMenu {
-  constructor(selector, items, options = {
-    className: '',
-    minimalStyling: false,
-  }) {
+  constructor(
+    selector,
+    items,
+    options = {
+      className: '',
+      minimalStyling: false,
+    },
+  ) {
     this.selector = selector;
     this.items = items;
     this.options = options;
@@ -63,7 +68,7 @@ export default class ContextMenu {
           this.hide();
           break;
         default:
-          // do nothing
+        // do nothing
       }
     });
 
@@ -71,7 +76,9 @@ export default class ContextMenu {
       this.menu.classList.add('ContextMenu--theme-default');
     }
     if (this.options.className) {
-      this.options.className.split(' ').forEach(cls => this.menu.classList.add(cls));
+      this.options.className
+        .split(' ')
+        .forEach((cls) => this.menu.classList.add(cls));
     }
 
     // Create <li>'s for each menu item
@@ -145,9 +152,10 @@ export default class ContextMenu {
     }
 
     if (!next) {
-      next = direction > 0
-        ? this.menu.querySelector('[data-contextmenuitem]:first-child')
-        : this.menu.querySelector('[data-contextmenuitem]:last-child');
+      next =
+        direction > 0
+          ? this.menu.querySelector('[data-contextmenuitem]:first-child')
+          : this.menu.querySelector('[data-contextmenuitem]:last-child');
     }
 
     if (next) next.focus();
@@ -183,7 +191,11 @@ document.addEventListener('contextmenu', (e) => {
 // Listen for click event to hide menu
 document.addEventListener('click', (e) => {
   instances.forEach((menu) => {
-    if (!e.target.matches(`[data-contextmenu="${menu.id}"], [data-contextmenu="${menu.id}"] *`)) {
+    if (
+      !e.target.matches(
+        `[data-contextmenu="${menu.id}"], [data-contextmenu="${menu.id}"] *`,
+      )
+    ) {
       menu.hide();
     }
   });
